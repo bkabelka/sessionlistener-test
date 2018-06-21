@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <properties>
+	<wildfly.version>13.0.0.Final</wildfly.version>
+    <javaee.version>7.0</javaee.version>
+  	<java.source>1.7</java.source>
+	<java.target>1.7</java.target>
+  </properties>
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>at.kabelka</groupId>
+  <artifactId>sessionlistener</artifactId>
+  <packaging>pom</packaging>
+  <name>HttpSessionListener Test</name>
+ 
+  <modules>
+    <module>../at.kabelka.test.sessionlistener.ear</module>
+  	<module>../at.kabelka.test.sessionlistener.rest</module>
+  	<module>../at.kabelka.test.sessionlistener.web</module>
+  </modules>
+  
+  <repositories>
+    <repository>
+       <id>JBoss Repository</id>
+        <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+    </repository>
+  </repositories>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>javax</groupId>
+  		<artifactId>javaee-api</artifactId>
+  		<scope>provided</scope>
+  	</dependency>
+	<dependency>
+		<groupId>org.wildfly</groupId>
+		<artifactId>wildfly-web-common</artifactId>
+	</dependency>
+  </dependencies>
+  
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+	  		<groupId>javax</groupId>
+	  		<artifactId>javaee-api</artifactId>
+	  		<version>${javaee.version}</version>
+	  		<scope>pom</scope>
+	  	</dependency>
+		<dependency>
+			<groupId>org.wildfly</groupId>
+			<artifactId>wildfly-web-common</artifactId>
+			<version>${wildfly.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>at.kabelka</groupId>
+			<artifactId>sessionlistener-rest</artifactId>
+			<version>0.1</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>at.kabelka</groupId>
+			<artifactId>sessionlistener-web</artifactId>
+			<version>0.1</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>at.kabelka</groupId>
+			<artifactId>sessionlistener-ear</artifactId>
+			<version>0.1</version>
+			<type>ear</type>
+		</dependency>
+  	</dependencies>
+  </dependencyManagement>
+  
+  <version>0.1</version>
+</project>

@@ -1,0 +1,6 @@
+.settings/
+build-resources/
+target/
+.classpath
+.project
+*.launch
