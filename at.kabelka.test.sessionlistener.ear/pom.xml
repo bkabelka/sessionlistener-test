@@ -12,12 +12,12 @@
   <dependencies>
     <dependency>
   		<groupId>at.kabelka</groupId>
-  		<artifactId>sessionlistener-rest</artifactId>
+  		<artifactId>sessionlistener-war-ui</artifactId>
   		<type>war</type>
   	</dependency>
     <dependency>
   		<groupId>at.kabelka</groupId>
-  		<artifactId>sessionlistener-web</artifactId>
+  		<artifactId>sessionlistener-war-ajax</artifactId>
   		<type>war</type>
   	</dependency>
   </dependencies>
@@ -56,14 +56,14 @@
           <modules>
              <webModule>
                <groupId>at.kabelka</groupId>
-               <artifactId>sessionlistener-rest</artifactId>
+               <artifactId>sessionlistener-war-ui</artifactId>
                <contextRoot>/sessionlistener</contextRoot>
                <unpack>${explode.modules}</unpack>
              </webModule>
              <webModule>
                <groupId>at.kabelka</groupId>
-               <artifactId>sessionlistener-web</artifactId>
-               <contextRoot>/sessionlistener-web</contextRoot>
+               <artifactId>sessionlistener-war-ajax</artifactId>
+               <contextRoot>/sessionlistener-ajax</contextRoot>
                <unpack>${explode.modules}</unpack>
              </webModule>
           </modules>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	
+	<display-name>HttpSessionListener Test</display-name>
+	
+    <listener>
+        <listener-class>at.kabelka.test.sessionlistener.war.ajax.SessionListener</listener-class>
+    </listener>
+	<servlet>
+		<servlet-name>WebService</servlet-name>
+		<servlet-class>javax.ws.rs.core.Application</servlet-class>
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>WebService</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+	
+	<!-- Protected content -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Protected content</web-resource-name>
+			<url-pattern>/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>*</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Not Allowed</web-resource-name>
+			<url-pattern>/*</url-pattern>
+			<http-method>OPTIONS</http-method>
+			<http-method>HEAD</http-method>
+			<http-method>PUT</http-method>
+			<http-method>DELETE</http-method>
+			<http-method>TRACE</http-method>
+			<http-method>CONNECT</http-method>
+		</web-resource-collection>
+		<auth-constraint />
+	</security-constraint>
+	
+	<!-- security roles -->
+	<security-role>
+		<role-name>*</role-name>
+	</security-role>
+	
+	<session-config>
+		<session-timeout>2</session-timeout>
+		<cookie-config>
+			<http-only>true</http-only>			
+		</cookie-config>
+	</session-config>
+	
+    <login-config>
+       <auth-method>BASIC?silent=true</auth-method>
+    </login-config>
+</web-app>
