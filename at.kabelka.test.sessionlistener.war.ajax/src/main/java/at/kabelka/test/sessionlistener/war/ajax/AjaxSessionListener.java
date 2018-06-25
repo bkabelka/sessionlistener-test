@@ -12,21 +12,21 @@ import org.jboss.logging.Logger;
  * @author bernhard.kabelka
  */
 @WebListener
-public class SessionListener implements HttpSessionListener
+public class AjaxSessionListener implements HttpSessionListener
 {
 
-    private static final Logger LOGGER = Logger.getLogger( SessionListener.class );
+    private static final Logger LOGGER = Logger.getLogger( AjaxSessionListener.class );
     
     @Override
     public void sessionCreated( HttpSessionEvent e )
     {
-        LOGGER.infov( "Session {0} created", e.getSession().getId() ); //$NON-NLS-1$
+        LOGGER.infov( "[AJAX] Session {0} created", e.getSession().getId() ); //$NON-NLS-1$
     }
 
     @Override
     public void sessionDestroyed( HttpSessionEvent e )
     {
-        LOGGER.infov( "Session {0} destroyed", e.getSession().getId() ); //$NON-NLS-1$
+        LOGGER.infov( "[AJAX] Session {0} destroyed", e.getSession().getId() ); //$NON-NLS-1$
     }
     
 }
