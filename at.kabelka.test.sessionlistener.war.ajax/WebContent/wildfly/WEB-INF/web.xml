@@ -6,9 +6,6 @@
 	
 	<display-name>HttpSessionListener Test</display-name>
 	
-    <listener>
-        <listener-class>at.kabelka.test.sessionlistener.war.ajax.SessionListener</listener-class>
-    </listener>
 	<servlet>
 		<servlet-name>WebService</servlet-name>
 		<servlet-class>javax.ws.rs.core.Application</servlet-class>
